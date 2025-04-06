@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>JavaScript Essentials</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/night.min.css">
+	<link rel="stylesheet"
+		href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
+	<style>
+		:root {
+			--main-bg-color: #191919;
+			--main-text-color: #f5f5f5;
+			--accent-color: #61dafb;
+			--secondary-color: #f0db4f;
+			--code-bg: #2d2d2d;
+		}
+
+		.reveal {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		}
+
+		.reveal h1,
+		.reveal h2,
+		.reveal h3,
+		.reveal h4 {
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			color: var(--accent-color);
+			text-transform: none;
+			margin-bottom: 30px;
+		}
+
+		.reveal h1 {
+			font-size: 2.5em;
+			font-weight: 600;
+		}
+
+		.reveal h2 {
+			font-size: 1.8em;
+			font-weight: 500;
+			color: var(--secondary-color);
+		}
+
+		.reveal h3 {
+			font-size: 1.4em;
+		}
+
+		.reveal p,
+		.reveal li {
+			font-size: 1.1em;
+			line-height: 1.5;
+			margin-bottom: 0.8em;
+		}
+
+		.reveal code {
+			background-color: var(--code-bg);
+			padding: 0.2em 0.4em;
+			border-radius: 3px;
+			font-family: Consolas, Monaco, 'Andale Mono', monospace;
+		}
+
+		.reveal pre {
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+			border-radius: 5px;
+			margin: 20px 0;
+		}
+
+		.reveal pre code {
+			padding: 16px;
+			line-height: 1.5;
+			font-size: 0.9em;
+			max-height: 400px;
+		}
+
+		.reveal section {
+			height: 100%;
+		}
+
+		.reveal table {
+			margin: 20px 0;
+			width: 100%;
+			border-collapse: collapse;
+		}
+
+		.reveal th,
+		.reveal td {
+			border: 1px solid #444;
+			padding: 8px 12px;
+			text-align: left;
+		}
+
+		.reveal th {
+			background-color: #333;
+			color: var(--accent-color);
+		}
+
+		.topic-box {
+			background: rgba(97, 218, 251, 0.1);
+			border-left: 4px solid var(--accent-color);
+			padding: 15px;
+			margin: 15px 0;
+			border-radius: 0 5px 5px 0;
+		}
+
+		.demo-box {
+			background: rgba(240, 219, 79, 0.1);
+			border-left: 4px solid var(--secondary-color);
+			padding: 15px;
+			margin: 15px 0;
+			border-radius: 0 5px 5px 0;
+		}
+
+		.grid-2 {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 20px;
+			margin: 20px 0;
+		}
+
+		.centered-content {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+			height: 100%;
+		}
+
+		.js-logo {
+			background-color: var(--secondary-color);
+			color: #000;
+			font-weight: bold;
+			padding: 40px;
+			font-size: 120px;
+			border-radius: 20px;
+			margin-bottom: 30px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+		}
+	</style>
+</head>
+
+<body>
+	<div class="reveal">
+		<div class="slides">
+			<!-- Title Slide -->
+			<section>
+				<div class="centered-content">
+					<div class="js-logo">JS</div>
+					<h1>JavaScript by Lambda IITH</h1>
+				</div>
+			</section>
+
+			<!-- Table of Contents -->
+			<section>
+				<h2>What We'll Cover</h2>
+				<div class="grid-2">
+					<div>
+						<ul>
+							<li>Variables & Data Types</li>
+							<li>Type Conversion</li>
+							<li>Operators & Comparisons</li>
+							<li>Math & Date Objects</li>
+							<li>Arrays & Methods</li>
+						</ul>
+					</div>
+					<div>
+						<ul>
+							<li>Objects & Methods</li>
+							<li>Functions & Scopes</li>
+							<li>Arrow Functions & IIFE</li>
+							<li>Control Flow</li>
+							<li>Loops & Iterations</li>
+							<li>DOM Manipulation</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<!-- Variables -->
+			<section>
+				<section>
+					<h2>Variables in JavaScript</h2>
+					<div class="topic-box">
+						<p>Variables are containers for storing data values.</p>
+					</div>
+					<p>Three ways to declare variables:</p>
+					<pre><code class="javascript">// var - function scoped (older, avoid when possible)
+var oldVariable = "I'm old school";
+
+// let - block scoped (use for values that will change)
+let counter = 0;
+
+// const - block scoped (use for values that won't change)
+const API_KEY = "abc123";</code></pre>
+				</section>
+				<section>
+					<h3>Variable Scopes & Hoisting</h3>
+					<div class="grid-2">
+						<div>
+							<h4>var</h4>
+							<ul>
+								<li>Function-scoped</li>
+								<li>Hoisted with undefined value</li>
+								<li>Can be redeclared</li>
+							</ul>
+						</div>
+						<div>
+							<h4>let & const</h4>
+							<ul>
+								<li>Block-scoped</li>
+								<li>Hoisted but not initialized (TDZ)</li>
+								<li>Cannot be redeclared in same scope</li>
+								<li>const must be initialized and can't be reassigned</li>
+							</ul>
+						</div>
+					</div>
+					<div class="demo-box">
+						<p>Best Practice: Use const by default, let when needed, avoid var</p>
+					</div>
+				</section>
+			</section>
+
+			<!-- Data Types -->
+			<section>
+				<section>
+					<h2>JavaScript Data Types</h2>
+					<p>JavaScript has 8 data types:</p>
+					<div class="grid-2">
+						<div>
+							<h3>Primitive Types</h3>
+							<ul>
+								<li>String</li>
+								<li>Number</li>
+								<li>Boolean</li>
+								<li>Undefined</li>
+								<li>Null</li>
+								<li>Symbol</li>
+								<li>BigInt</li>
+							</ul>
+						</div>
+						<div>
+							<h3>Reference Type</h3>
+							<ul>
+								<li>Object
+									<ul>
+										<li>Object literals</li>
+										<li>Arrays</li>
+										<li>Functions</li>
+										<li>Dates</li>
+										<li>RegExp</li>
+										<li>Map, Set, etc.</li>
+									</ul>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Primitive Types Examples</h3>
+					<pre><code class="javascript">// String - text data
+const name = "JavaScript";
+
+// Number - integers and floating points
+const integer = 42;
+const float = 3.14;
+
+// Boolean - true/false
+const isActive = true;
+
+// Undefined - variable declared but not assigned
+let future;
+
+// Null - intentional absence of value
+const empty = null;
+
+// Symbol - unique identifier
+const uniqueId = Symbol("id");
+
+// BigInt - for large integers
+const bigNumber = 9007199254740991n;</code></pre>
+				</section>
+				<section>
+					<h3>Reference Types Example</h3>
+					<pre><code class="javascript">// Object - collection of key-value pairs
+const person = {
+  name: "John",
+  age: 30
+};
+
+// Array - ordered collection of items
+const fruits = ["apple", "orange", "banana"];
+
+// Function - callable object
+function greet() {
+  return "Hello!";
+}
+
+// Date object
+const today = new Date();</code></pre>
+				</section>
+				<section>
+					<h3>Checking Types</h3>
+					<pre><code class="javascript">// Using typeof operator
+console.log(typeof "Hello");     // "string"
+console.log(typeof 42);         // "number"
+console.log(typeof true);       // "boolean"
+console.log(typeof undefined);  // "undefined"
+console.log(typeof null);       // "object" (⚠️ historical bug)
+console.log(typeof Symbol());   // "symbol"
+console.log(typeof {});         // "object"
+console.log(typeof []);         // "object" (arrays are objects)
+console.log(typeof function(){}); // "function"
+
+// For arrays, use Array.isArray()
+console.log(Array.isArray([])); // true</code></pre>
+				</section>
+			</section>
+
+			<!-- Type Conversion -->
+			<section>
+				<section>
+					<h2>Type Conversion</h2>
+					<div class="topic-box">
+						<p>Converting values from one data type to another.</p>
+					</div>
+					<div class="grid-2">
+						<div>
+							<h3>Explicit Conversion</h3>
+							<p>When you manually convert types:</p>
+							<ul>
+								<li>String()</li>
+								<li>Number()</li>
+								<li>Boolean()</li>
+								<li>parseInt()/parseFloat()</li>
+							</ul>
+						</div>
+						<div>
+							<h3>Implicit Conversion</h3>
+							<p>When JavaScript automatically converts types:</p>
+							<ul>
+								<li>During operations (+, -, *, /)</li>
+								<li>During comparisons (==, !=)</li>
+								<li>In conditional statements</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>String Conversion</h3>
+					<pre><code class="javascript">// To String
+String(123);          // "123"
+String(true);         // "true"
+String(null);         // "null"
+String(undefined);    // "undefined"
+String([1, 2, 3]);    // "1,2,3"
+
+// Alternative methods
+123.toString();       // "123"
+(123).toString();     // "123"
+[1, 2, 3].toString(); // "1,2,3"
+
+// Template literals
+`The value is ${123}`; // "The value is 123"</code></pre>
+				</section>
+				<section>
+					<h3>Numeric Conversion</h3>
+					<pre><code class="javascript">// To Number
+Number("123");        // 123
+Number("12.3");       // 12.3
+Number("");           // 0
+Number(true);         // 1
+Number(false);        // 0
+Number(null);         // 0
+Number(undefined);    // NaN
+Number("text");       // NaN
+Number([1]);          // 1
+Number([1, 2]);       // NaN
+
+// Parsing functions
+parseInt("123px");    // 123
+parseFloat("12.3em"); // 12.3
+
+// Unary plus operator
++"123";               // 123</code></pre>
+				</section>
+				<section>
+					<h3>Boolean Conversion</h3>
+					<pre><code class="javascript">// To Boolean
+Boolean(1);           // true
+Boolean(0);           // false
+Boolean("hello");     // true
+Boolean("");          // false
+Boolean(null);        // false
+Boolean(undefined);   // false
+Boolean(NaN);         // false
+Boolean([]);          // true (empty array is truthy)
+Boolean({});          // true (empty object is truthy)
+
+// Falsy values: false, 0, "", null, undefined, NaN
+// Everything else is truthy
+
+// Double negation shorthand
+!!1;                  // true
+!!0;                  // false</code></pre>
+				</section>
+				<section>
+					<h3>Implicit Type Conversion</h3>
+					<pre><code class="javascript">// String concatenation with +
+"5" + 2;              // "52" (number converts to string)
+2 + "5";              // "25" (number converts to string)
+
+// Numeric operations (except +)
+"5" - 2;              // 3 (string converts to number)
+"5" * 2;              // 10 (string converts to number)
+"5" / 2;              // 2.5 (string converts to number)
+
+// Comparisons
+"5" == 5;             // true (loose equality)
+"5" === 5;            // false (strict equality - no conversion)
+
+// Boolean context (if, while, ternary)
+if ("hello") {        // converts to true
+  // will execute
+}</code></pre>
+				</section>
+			</section>
+
+			<!-- Operators -->
+			<section>
+				<section>
+					<h2>JavaScript Operators</h2>
+					<div class="topic-box">
+						<p>Symbols that perform operations on operands (values and variables).</p>
+					</div>
+					<table>
+						<tr>
+							<th>Operator Type</th>
+							<th>Examples</th>
+						</tr>
+						<tr>
+							<td>Assignment</td>
+							<td>=, +=, -=, *=, /=, %=</td>
+						</tr>
+						<tr>
+							<td>Arithmetic</td>
+							<td>+, -, *, /, %, **, ++, --</td>
+						</tr>
+						<tr>
+							<td>Comparison</td>
+							<td>==, ===, !=, !==, >, <,>=, <=< /td>
+						</tr>
+						<tr>
+							<td>Logical</td>
+							<td>&&, ||, !</td>
+						</tr>
+						<tr>
+							<td>Bitwise</td>
+							<td>&, |, ~, ^, <<,>>, >>></td>
+						</tr>
+						<tr>
+							<td>Special</td>
+							<td>?. (optional chaining), ?? (nullish coalescing)</td>
+						</tr>
+					</table>
+				</section>
+				<section>
+					<h3>Arithmetic Operators</h3>
+					<pre><code class="javascript">// Basic arithmetic
+let a = 10;
+let b = 3;
+
+a + b;    // 13 (addition)
+a - b;    // 7 (subtraction)
+a * b;    // 30 (multiplication)
+a / b;    // 3.3333... (division)
+a % b;    // 1 (modulus - remainder)
+a ** b;   // 1000 (exponentiation - 10^3)
+
+// Increment/decrement
+let counter = 5;
+counter++;  // 5 (post-increment, returns then adds 1)
+++counter;  // 7 (pre-increment, adds 1 then returns)
+counter--;  // 7 (post-decrement, returns then subtracts 1)
+--counter;  // 5 (pre-decrement, subtracts 1 then returns)</code></pre>
+				</section>
+				<section>
+					<h3>Comparison Operators</h3>
+					<pre><code class="javascript">// Loose equality (with type conversion)
+5 == "5";      // true
+0 == false;    // true
+"" == 0;       // true
+null == undefined; // true
+
+// Strict equality (no type conversion)
+5 === "5";     // false
+0 === false;   // false
+
+// Inequality
+5 != "6";      // true
+5 !== 5;       // false
+
+// Relational
+5 > 3;         // true
+5 < 3;         // false
+5 >= 5;        // true
+5 <= 6;        // true</code></pre>
+					<div class="demo-box">
+						<p>Best Practice: Always use strict equality (===, !==) to avoid unexpected type conversions</p>
+					</div>
+				</section>
+				<section>
+					<h3>Logical Operators</h3>
+					<pre><code class="javascript">// Logical AND (&&) - returns first falsy value or last value
+true && true;    // true
+true && false;   // false
+"Hello" && 42;   // 42 (both truthy, returns last value)
+0 && "Hello";    // 0 (first value is falsy, returns it)
+
+// Logical OR (||) - returns first truthy value or last value
+true || false;   // true
+false || false;  // false
+"Hello" || 42;   // "Hello" (first value is truthy, returns it)
+0 || "";         // "" (both falsy, returns last value)
+
+// Logical NOT (!) - converts to boolean and inverts
+!true;           // false
+!0;              // true
+!!"Hello";       // true (double negation = boolean conversion)</code></pre>
+				</section>
+				<section>
+					<h3>Modern JavaScript Operators</h3>
+					<pre><code class="javascript">// Nullish coalescing operator (??) - returns right side only when left is null/undefined
+let username = null ?? "Guest";          // "Guest"
+let count = 0 ?? 42;                     // 0 (0 is not nullish)
+let empty = "" ?? "Default";             // "" (empty string is not nullish)
+
+// Optional chaining (?.) - safely access nested properties
+const user = { 
+  profile: { 
+    name: "John" 
+  } 
+};
+
+user.profile.name;                      // "John"
+user.settings?.theme;                   // undefined (no error)
+user.getFullName?.();                   // undefined (no error)
+
+// Without optional chaining would cause error:
+// user.settings.theme // TypeError: Cannot read property 'theme' of undefined</code></pre>
+				</section>
+			</section>
+
+			<!-- Math Object -->
+			<section>
+				<section>
+					<h2>Math Object</h2>
+					<div class="topic-box">
+						<p>Built-in object for mathematical constants and functions.</p>
+					</div>
+					<div class="grid-2">
+						<div>
+							<h3>Common Constants</h3>
+							<ul>
+								<li>Math.PI (π ≈ 3.14159...)</li>
+								<li>Math.E (e ≈ 2.71828...)</li>
+								<li>Math.SQRT2 (√2 ≈ 1.414...)</li>
+								<li>Math.LN2 (ln(2) ≈ 0.693...)</li>
+								<li>Math.LN10 (ln(10) ≈ 2.302...)</li>
+							</ul>
+						</div>
+						<div>
+							<h3>Common Methods</h3>
+							<ul>
+								<li>Math.round(), floor(), ceil()</li>
+								<li>Math.min(), max()</li>
+								<li>Math.abs(), pow(), sqrt()</li>
+								<li>Math.random()</li>
+								<li>Math.sin(), cos(), tan()</li>
+							</ul>
+						</div>
+					</div>
+				</section>
+				<section>
+					<h3>Math Object Examples</h3>
+					<pre><code class="javascript">// Rounding methods
+Math.round(4.7);     // 5
+Math.round(4.4);     // 4
+Math.floor(4.7);     // 4 (always rounds down)
+Math.ceil(4.3);      // 5 (always rounds up)
+Math.trunc(4.7);     // 4 (removes decimal part)
+
+// Min and Max
+Math.min(2, 5, 1, 8, 3);    // 1
+Math.max(2, 5, 1, 8, 3);    // 8
+
+// Power and Square Root
+Math.pow(2, 3);     // 8 (2³)
+Math.sqrt(9);       // 3 (√9)
+Math.cbrt(27);      // 3 (∛27)
+
+// Random (0 to less than 1)
+Math.random();      // 0.123456789... (random number)</code></pre>
+				</section>
+				<section>
+					<h3>Working with Math.random()</h3>
+					<pre><code class="javascript">// Random number between 0 and 1 (not including 1)
+Math.random();                            // 0.123456789...
+
+// Random integer from 0 to max (not including max)
+function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+getRandomInt(10);                        // 0-9
+
+// Random integer from min to max (inclusive)
+function getRandomIntInclusive(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1) + min);
+}
+getRandomIntInclusive(1, 10);           // 1-10
+
+// Random element from array
+function getRandomElement(array) {
+  return array[Math.floor(Math.random() * array.length)];
+}
+getRandomElement(["red", "green", "blue"]);  // random color</code></pre>
+				</section>
+			</section>
+
+			<!-- Date Object -->
+			<section>
+				<section>
+					<h2>Date Object</h2>
+					<div class="topic-box">
+						<p>Built-in object for working with dates and times.</p>
+					</div>
+					<h3>Creating Date Objects</h3>
+					<pre><code class="javascript">// Current date and time
+const now = new Date();                  // current date & time
+
+// Specific date (year, month [0-11], day, hour, minute, second, ms)
+const birthday = new Date(1990, 0, 15);  // Jan 15, 1990
+
+// From timestamp (milliseconds since Jan 1, 1970)
+const timestamp = new Date(1609459200000); // Dec 31, 2020
+
+// From date string
+const christmas = new Date("2023-12-25"); // Christmas 2023
+const halloween = new Date("October 31, 2023"); // Halloween 2023</code></pre>
+				</section>
+				<section>
+					<h3>Date Methods: Getters</h3>
+					<pre><code class="javascript">const date = new Date("2023-05-15T14:30:45");
+
+// Date components (local time)
+date.getFullYear();    // 2023
+date.getMonth();       // 4 (0-based, so 4 = May)
+date.getDate();        // 15
+date.getDay();         // 1 (0 = Sunday, 1 = Monday, etc.)
+
+// Time components (local time)
+date.getHours();       // 14 (2 PM)
+date.getMinutes();     // 30
+date.getSeconds();     // 45
+date.getMilliseconds(); // 0
+
+// Timestamp
+date.getTime();        // milliseconds since Jan 1, 1970
+
+// UTC/GMT methods
+date.getUTCHours();    // UTC hours (may differ from local)</code></pre>
+				</section>
+				<section>
+					<h3>Date Methods: Setters</h3>
+					<pre><code class="javascript">const date = new Date();
+
+// Set date components
+date.setFullYear(2025);
+date.setMonth(11);     // December (0-based)
+date.setDate(31);
+
+// Set time components
+date.setHours(23);
+date.setMinutes(59);
+date.setSeconds(59);
+
+// Set by timestamp
+date.setTime(1735689599000);  // Dec 31, 2024 23:59:59
+
+// UTC variants are also available
+date.setUTCHours(0);</code></pre>
+				</section>
+				<section>
+					<h3>Date Formatting & Operations</h3>
+					<pre><code class="javascript">const date = new Date();
+
+// Common formatting methods
+date.toString();           // "Mon Apr 06 2025 12:34:56 GMT+0000"
+date.toDateString();       // "Mon Apr 06 2025"
+date.toTimeString();       // "12:34:56 GMT+0000"
+date.toISOString();        // "2025-04-06T12:34:56.789Z"
+date.toLocaleString();     // "4/6/2025, 12:34:56 PM"
+date.toLocaleDateString(); // "4/6/2025"
+date.toLocaleTimeString(); // "12:34:56 PM"
+
+// Date arithmetic (in milliseconds)
+const tomorrow = new Date();
+tomorrow.setDate(tomorrow.getDate() + 1);
+
+// Calculate difference between dates (in milliseconds)
+const diff = tomorrow - date;  // 86400000 (1 day in ms)</code></pre>
+					
+				</section>
+			</section>
+
+			<!-- Arrays -->
+			<section>
+				<section>
+					<h2>Arrays</h2>
+					<div class="topic-box">
+						<p>Ordered collections of values accessed by index (starting at 0).</p>
+					</div>
+					<h3>Creating Arrays</h3>
+					<pre><code class="javascript">// Array literal (preferred)
+const fruits = ["apple", "banana", "orange"];
+
+// Array constructor (less common)
+const numbers = new Array(1, 2, 3, 4, 5);
+
+// Empty array
+const empty = [];
+
+// Array with preset length but no values
+const preset = new Array(5);  // [empty × 5]
+
+// Array from other iterable
+const chars = Array.from("hello");  // ["h", "e", "l", "l", "o"]
+const items = Array.of(1, 2, 3);    // [1, 2, 3]</code></pre>
+				</section>
+				<section>
+					<h3>Accessing Array Elements</h3>
+					<pre><code class="javascript">const fruits = ["apple", "banana", "orange", "mango"];
+
+// Access by index
+fruits[0];                // "apple"
+fruits[2];                // "orange"
+fruits[fruits.length - 1]; // "mango" (last element)
+
+// Out of bounds
+fruits[10];               // undefined (no error)
+
+// Nested arrays
+const matrix = [[1, 2], [3, 4]];
+matrix[0][1];             // 2
+
+// Modifying elements
+fruits[1] = "pear";       // ["apple", "pear", "orange", "mango"]
+
+// Length property
+fruits.length;            // 4
+
+// Extend array by setting length
+fruits.length = 6;        // ["apple", "pear", "orange", "mango", empty × 2]
+
+// Truncate array by setting length
+fruits.length = 2;        // ["apple", "pear"]</code></pre>
+				</section>
+				<section>
+					<h3>Basic Array Methods</h3>
+					<pre><code class="javascript">const fruits = ["apple", "banana", "orange"];
+
+// Adding elements
+fruits.push("mango");         // 4 (returns new length)
+                              // ["apple", "banana", "orange", "mango"]
+fruits.unshift("strawberry"); // 5 (returns new length)
+                              // ["strawberry", "apple", "banana", "orange", "mango"]
+
+// Removing elements
+fruits.pop();                 // "mango" (returns removed element)
+                              // ["strawberry", "apple", "banana", "orange"]
+fruits.shift();               // "strawberry" (returns removed element)
+                              // ["apple", "banana", "orange"]
+
+// Finding elements
+fruits.indexOf("banana");     // 1
+fruits.includes("orange");    // true
+
+// Combining arrays
+const more = ["grape", "kiwi"];
+const combined = fruits.concat(more);  // ["apple", "banana", "orange", "grape", "kiwi"]
+
+// Extracting parts (slice does not modify original)
+fruits.slice(1, 3);           // ["banana", "orange"]</code></pre>
+				</section>
+				<section>
+					<h3>Array Methods for Transformation</h3>
+					<pre><code class="javascript">const numbers = [1, 2, 3, 4, 5];
+
+// map - transform each element (returns new array)
+const doubled = numbers.map(num => num * 2);
+// [2, 4, 6, 8, 10]
+
+// filter - keep elements that pass a test (returns new array)
+const evens = numbers.filter(num => num % 2 === 0);
+// [2, 4]
+
+// reduce - accumulate values (returns single value)
+const sum = numbers.reduce((acc, num) => acc + num, 0);
+// 15
+
+// some - tests if any element passes (returns boolean)
+const hasEven = numbers.some(num => num % 2 === 0);
+// true
+
+// every - tests if all elements pass (returns boolean)
+const allPositive = numbers.every(num => num > 0);
+// true</code></pre>
+				</section>
+
+				<script src="dist/reveal.js">
+
+				</script>
+				<script src="plugin/notes/notes.js"></script>
+				<script src="plugin/markdown/markdown.js"></script>
+				<script src="plugin/highlight/highlight.js"></script>
+				<script> Reveal.initialize({ hash: true, plugins: [RevealMarkdown, RevealHighlight, RevealNotes] }); </script>
+
+</body>
+
+</html>
