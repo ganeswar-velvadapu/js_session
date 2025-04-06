@@ -97,21 +97,6 @@
 			color: var(--accent-color);
 		}
 
-		.topic-box {
-			background: rgba(97, 218, 251, 0.1);
-			border-left: 4px solid var(--accent-color);
-			padding: 15px;
-			margin: 15px 0;
-			border-radius: 0 5px 5px 0;
-		}
-
-		.demo-box {
-			background: rgba(240, 219, 79, 0.1);
-			border-left: 4px solid var(--secondary-color);
-			padding: 15px;
-			margin: 15px 0;
-			border-radius: 0 5px 5px 0;
-		}
 
 		.grid-2 {
 			display: grid;
@@ -143,7 +128,9 @@
 
 <body>
 	<div class="reveal">
+
 		<div class="slides">
+			<!-- JS Part -->
 			<!-- Title Slide -->
 			<section>
 				<div class="centered-content">
@@ -157,36 +144,35 @@
 				<h2>What We'll Cover</h2>
 				<div class="grid-2">
 					<div>
-						<ul>
+						<ul style="font-size: 25px;">
 							<li>Variables & Data Types</li>
-							<li>Type Conversion</li>
 							<li>Operators & Comparisons</li>
-							<li>Math & Date Objects</li>
 							<li>Arrays & Methods</li>
+							<li>Objects & Methods</li>
+							<li>Functions & Scopes</li>
 						</ul>
 					</div>
 					<div>
-						<ul>
-							<li>Objects & Methods</li>
-							<li>Functions & Scopes</li>
+						<ul style="font-size: 25px;">
 							<li>Arrow Functions & IIFE</li>
 							<li>Control Flow</li>
 							<li>Loops & Iterations</li>
 							<li>DOM Manipulation</li>
+							<li>Asynchronous JavaScript</li>
 						</ul>
 					</div>
 				</div>
 			</section>
 
 			<!-- Variables -->
+
 			<section>
-				<section>
-					<h2>Variables in JavaScript</h2>
-					<div class="topic-box">
-						<p>Variables are containers for storing data values.</p>
-					</div>
-					<p>Three ways to declare variables:</p>
-					<pre><code class="javascript">// var - function scoped (older, avoid when possible)
+				<h2>Variables in JavaScript</h2>
+				<div class="">
+					<p>Variables are containers for storing data values.</p>
+				</div>
+				<p>Three ways to declare variables:</p>
+				<pre><code class="javascript">// var - function scoped (older, avoid when possible)
 var oldVariable = "I'm old school";
 
 // let - block scoped (use for values that will change)
@@ -194,72 +180,69 @@ let counter = 0;
 
 // const - block scoped (use for values that won't change)
 const API_KEY = "abc123";</code></pre>
-				</section>
-				<section>
-					<h3>Variable Scopes & Hoisting</h3>
-					<div class="grid-2">
-						<div>
-							<h4>var</h4>
-							<ul>
-								<li>Function-scoped</li>
-								<li>Hoisted with undefined value</li>
-								<li>Can be redeclared</li>
-							</ul>
-						</div>
-						<div>
-							<h4>let & const</h4>
-							<ul>
-								<li>Block-scoped</li>
-								<li>Hoisted but not initialized (TDZ)</li>
-								<li>Cannot be redeclared in same scope</li>
-								<li>const must be initialized and can't be reassigned</li>
-							</ul>
-						</div>
+			</section>
+			<section>
+				<h2 class="title">Variable Scopes & Hoisting</h2>
+				<div class="grid-2">
+					<div>
+						<h4>var</h4>
+						<ul style="font-size: 25px;">
+							<li>Function-scoped</li>
+							<li>Can be redeclared</li>
+						</ul>
 					</div>
-					<div class="demo-box">
-						<p>Best Practice: Use const by default, let when needed, avoid var</p>
+					<div>
+						<h4>let & const</h4>
+						<ul style="font-size: 25px;">
+							<li>Block-scoped</li>
+							<li>Cannot be redeclared in same scope</li>
+							<li>const must be initialized and can't be reassigned</li>
+						</ul>
 					</div>
-				</section>
+				</div>
+				<div class="">
+					<p>Best Practice: Use const by default, let when needed, avoid var</p>
+				</div>
 			</section>
 
 			<!-- Data Types -->
+
 			<section>
-				<section>
-					<h2>JavaScript Data Types</h2>
-					<p>JavaScript has 8 data types:</p>
-					<div class="grid-2">
-						<div>
-							<h3>Primitive Types</h3>
-							<ul>
-								<li>String</li>
-								<li>Number</li>
-								<li>Boolean</li>
-								<li>Undefined</li>
-								<li>Null</li>
-								<li>Symbol</li>
-								<li>BigInt</li>
-							</ul>
-						</div>
-						<div>
-							<h3>Reference Type</h3>
-							<ul>
-								<li>Object
-									<ul>
-										<li>Object literals</li>
-										<li>Arrays</li>
-										<li>Functions</li>
-										<li>Dates</li>
-										<li>RegExp</li>
-										<li>Map, Set, etc.</li>
-									</ul>
-								</li>
-							</ul>
-						</div>
+				<h2>JavaScript Data Types</h2>
+				<p>JavaScript has 8 data types:</p>
+				<div class="grid-2">
+					<div>
+						<h3 style="font-size:25px">Primitive Types</h3>
+						<ul style="font-size: 20px;">
+							<li>String</li>
+							<li>Number</li>
+							<li>Boolean</li>
+							<li>Undefined</li>
+							<li>Null</li>
+							<li>Symbol</li>
+							<li>BigInt</li>
+						</ul>
 					</div>
-				</section>
-				<section>
-					<h3>Primitive Types Examples</h3>
-					<pre><code class="javascript">// String - text data
+					<div>
+						<h3 style="font-size: 25px;">Reference Type</h3>
+						<ul>
+							<li style="font-size: 22px;">Object
+								<ul style="font-size: 20px;">
+									<li>Object literals</li>
+									<li>Arrays</li>
+									<li>Functions</li>
+									<li>Dates</li>
+									<li>RegExp</li>
+									<li>Map, Set, etc.</li>
+								</ul>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+			<section>
+				<h2 class="title">Primitive Types Examples</h2>
+				<pre><code class="javascript">// String - text data
 const name = "JavaScript";
 
 // Number - integers and floating points
@@ -280,10 +263,10 @@ const uniqueId = Symbol("id");
 
 // BigInt - for large integers
 const bigNumber = 9007199254740991n;</code></pre>
-				</section>
-				<section>
-					<h3>Reference Types Example</h3>
-					<pre><code class="javascript">// Object - collection of key-value pairs
+			</section>
+			<section>
+				<h2 class="title">Reference Types Example</h2>
+				<pre><code class="javascript">// Object - collection of key-value pairs
 const person = {
   name: "John",
   age: 30
@@ -296,13 +279,11 @@ const fruits = ["apple", "orange", "banana"];
 function greet() {
   return "Hello!";
 }
-
-// Date object
-const today = new Date();</code></pre>
-				</section>
-				<section>
-					<h3>Checking Types</h3>
-					<pre><code class="javascript">// Using typeof operator
+</code></pre>
+			</section>
+			<section>
+				<h2 class="title">Checking Types</h2>
+				<pre><code class="javascript">// Using typeof operator
 console.log(typeof "Hello");     // "string"
 console.log(typeof 42);         // "number"
 console.log(typeof true);       // "boolean"
@@ -315,159 +296,47 @@ console.log(typeof function(){}); // "function"
 
 // For arrays, use Array.isArray()
 console.log(Array.isArray([])); // true</code></pre>
-				</section>
 			</section>
 
-			<!-- Type Conversion -->
-			<section>
-				<section>
-					<h2>Type Conversion</h2>
-					<div class="topic-box">
-						<p>Converting values from one data type to another.</p>
-					</div>
-					<div class="grid-2">
-						<div>
-							<h3>Explicit Conversion</h3>
-							<p>When you manually convert types:</p>
-							<ul>
-								<li>String()</li>
-								<li>Number()</li>
-								<li>Boolean()</li>
-								<li>parseInt()/parseFloat()</li>
-							</ul>
-						</div>
-						<div>
-							<h3>Implicit Conversion</h3>
-							<p>When JavaScript automatically converts types:</p>
-							<ul>
-								<li>During operations (+, -, *, /)</li>
-								<li>During comparisons (==, !=)</li>
-								<li>In conditional statements</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section>
-					<h3>String Conversion</h3>
-					<pre><code class="javascript">// To String
-String(123);          // "123"
-String(true);         // "true"
-String(null);         // "null"
-String(undefined);    // "undefined"
-String([1, 2, 3]);    // "1,2,3"
-
-// Alternative methods
-123.toString();       // "123"
-(123).toString();     // "123"
-[1, 2, 3].toString(); // "1,2,3"
-
-// Template literals
-`The value is ${123}`; // "The value is 123"</code></pre>
-				</section>
-				<section>
-					<h3>Numeric Conversion</h3>
-					<pre><code class="javascript">// To Number
-Number("123");        // 123
-Number("12.3");       // 12.3
-Number("");           // 0
-Number(true);         // 1
-Number(false);        // 0
-Number(null);         // 0
-Number(undefined);    // NaN
-Number("text");       // NaN
-Number([1]);          // 1
-Number([1, 2]);       // NaN
-
-// Parsing functions
-parseInt("123px");    // 123
-parseFloat("12.3em"); // 12.3
-
-// Unary plus operator
-+"123";               // 123</code></pre>
-				</section>
-				<section>
-					<h3>Boolean Conversion</h3>
-					<pre><code class="javascript">// To Boolean
-Boolean(1);           // true
-Boolean(0);           // false
-Boolean("hello");     // true
-Boolean("");          // false
-Boolean(null);        // false
-Boolean(undefined);   // false
-Boolean(NaN);         // false
-Boolean([]);          // true (empty array is truthy)
-Boolean({});          // true (empty object is truthy)
-
-// Falsy values: false, 0, "", null, undefined, NaN
-// Everything else is truthy
-
-// Double negation shorthand
-!!1;                  // true
-!!0;                  // false</code></pre>
-				</section>
-				<section>
-					<h3>Implicit Type Conversion</h3>
-					<pre><code class="javascript">// String concatenation with +
-"5" + 2;              // "52" (number converts to string)
-2 + "5";              // "25" (number converts to string)
-
-// Numeric operations (except +)
-"5" - 2;              // 3 (string converts to number)
-"5" * 2;              // 10 (string converts to number)
-"5" / 2;              // 2.5 (string converts to number)
-
-// Comparisons
-"5" == 5;             // true (loose equality)
-"5" === 5;            // false (strict equality - no conversion)
-
-// Boolean context (if, while, ternary)
-if ("hello") {        // converts to true
-  // will execute
-}</code></pre>
-				</section>
-			</section>
 
 			<!-- Operators -->
+
 			<section>
-				<section>
-					<h2>JavaScript Operators</h2>
-					<div class="topic-box">
-						<p>Symbols that perform operations on operands (values and variables).</p>
-					</div>
-					<table>
-						<tr>
-							<th>Operator Type</th>
-							<th>Examples</th>
-						</tr>
-						<tr>
-							<td>Assignment</td>
-							<td>=, +=, -=, *=, /=, %=</td>
-						</tr>
-						<tr>
-							<td>Arithmetic</td>
-							<td>+, -, *, /, %, **, ++, --</td>
-						</tr>
-						<tr>
-							<td>Comparison</td>
-							<td>==, ===, !=, !==, >, <,>=, <=< /td>
-						</tr>
-						<tr>
-							<td>Logical</td>
-							<td>&&, ||, !</td>
-						</tr>
-						<tr>
-							<td>Bitwise</td>
-							<td>&, |, ~, ^, <<,>>, >>></td>
-						</tr>
-						<tr>
-							<td>Special</td>
-							<td>?. (optional chaining), ?? (nullish coalescing)</td>
-						</tr>
-					</table>
-				</section>
-				<section>
-					<h3>Arithmetic Operators</h3>
-					<pre><code class="javascript">// Basic arithmetic
+				<h2>JavaScript Operators</h2>
+				<div class="">
+					<p>Symbols that perform operations on operands (values and variables).</p>
+				</div>
+				<table style="font-size: 20px;">
+					<tr>
+						<th>Operator Type</th>
+						<th>Examples</th>
+					</tr>
+					<tr>
+						<td>Assignment</td>
+						<td>=, +=, -=, *=, /=, %=</td>
+					</tr>
+					<tr>
+						<td>Arithmetic</td>
+						<td>+, -, *, /, %, **, ++, --</td>
+					</tr>
+					<tr>
+						<td>Comparison</td>
+						<td>==, ===, !=, !==, >, <,>=, <=< /td>
+					</tr>
+					<tr>
+						<td>Logical</td>
+						<td>&&, ||, !</td>
+					</tr>
+					<tr>
+						<td>Bitwise</td>
+						<td>&, |, ~, ^, <<,>>, >>></td>
+					</tr>
+					<tr></tr>
+				</table>
+			</section>
+			<section>
+				<h2 class="title">Arithmetic Operators</h2>
+				<pre><code class="javascript">// Basic arithmetic
 let a = 10;
 let b = 3;
 
@@ -484,10 +353,10 @@ counter++;  // 5 (post-increment, returns then adds 1)
 ++counter;  // 7 (pre-increment, adds 1 then returns)
 counter--;  // 7 (post-decrement, returns then subtracts 1)
 --counter;  // 5 (pre-decrement, subtracts 1 then returns)</code></pre>
-				</section>
-				<section>
-					<h3>Comparison Operators</h3>
-					<pre><code class="javascript">// Loose equality (with type conversion)
+			</section>
+			<section>
+				<h2 class="title">Comparison Operators</h2>
+				<pre><code class="javascript">// Loose equality (with type conversion)
 5 == "5";      // true
 0 == false;    // true
 "" == 0;       // true
@@ -506,13 +375,14 @@ null == undefined; // true
 5 < 3;         // false
 5 >= 5;        // true
 5 <= 6;        // true</code></pre>
-					<div class="demo-box">
-						<p>Best Practice: Always use strict equality (===, !==) to avoid unexpected type conversions</p>
-					</div>
-				</section>
-				<section>
-					<h3>Logical Operators</h3>
-					<pre><code class="javascript">// Logical AND (&&) - returns first falsy value or last value
+				<div class="">
+					<p style="font-size: 25px;">Best Practice: Always use strict equality (===, !==) to avoid unexpected
+						type conversions</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="title">Logical Operators</h2>
+				<pre><code class="javascript">// Logical AND (&&) - returns first falsy value or last value
 true && true;    // true
 true && false;   // false
 "Hello" && 42;   // 42 (both truthy, returns last value)
@@ -528,203 +398,20 @@ false || false;  // false
 !true;           // false
 !0;              // true
 !!"Hello";       // true (double negation = boolean conversion)</code></pre>
-				</section>
-				<section>
-					<h3>Modern JavaScript Operators</h3>
-					<pre><code class="javascript">// Nullish coalescing operator (??) - returns right side only when left is null/undefined
-let username = null ?? "Guest";          // "Guest"
-let count = 0 ?? 42;                     // 0 (0 is not nullish)
-let empty = "" ?? "Default";             // "" (empty string is not nullish)
-
-// Optional chaining (?.) - safely access nested properties
-const user = { 
-  profile: { 
-    name: "John" 
-  } 
-};
-
-user.profile.name;                      // "John"
-user.settings?.theme;                   // undefined (no error)
-user.getFullName?.();                   // undefined (no error)
-
-// Without optional chaining would cause error:
-// user.settings.theme // TypeError: Cannot read property 'theme' of undefined</code></pre>
-				</section>
 			</section>
 
-			<!-- Math Object -->
-			<section>
-				<section>
-					<h2>Math Object</h2>
-					<div class="topic-box">
-						<p>Built-in object for mathematical constants and functions.</p>
-					</div>
-					<div class="grid-2">
-						<div>
-							<h3>Common Constants</h3>
-							<ul>
-								<li>Math.PI (π ≈ 3.14159...)</li>
-								<li>Math.E (e ≈ 2.71828...)</li>
-								<li>Math.SQRT2 (√2 ≈ 1.414...)</li>
-								<li>Math.LN2 (ln(2) ≈ 0.693...)</li>
-								<li>Math.LN10 (ln(10) ≈ 2.302...)</li>
-							</ul>
-						</div>
-						<div>
-							<h3>Common Methods</h3>
-							<ul>
-								<li>Math.round(), floor(), ceil()</li>
-								<li>Math.min(), max()</li>
-								<li>Math.abs(), pow(), sqrt()</li>
-								<li>Math.random()</li>
-								<li>Math.sin(), cos(), tan()</li>
-							</ul>
-						</div>
-					</div>
-				</section>
-				<section>
-					<h3>Math Object Examples</h3>
-					<pre><code class="javascript">// Rounding methods
-Math.round(4.7);     // 5
-Math.round(4.4);     // 4
-Math.floor(4.7);     // 4 (always rounds down)
-Math.ceil(4.3);      // 5 (always rounds up)
-Math.trunc(4.7);     // 4 (removes decimal part)
 
-// Min and Max
-Math.min(2, 5, 1, 8, 3);    // 1
-Math.max(2, 5, 1, 8, 3);    // 8
 
-// Power and Square Root
-Math.pow(2, 3);     // 8 (2³)
-Math.sqrt(9);       // 3 (√9)
-Math.cbrt(27);      // 3 (∛27)
-
-// Random (0 to less than 1)
-Math.random();      // 0.123456789... (random number)</code></pre>
-				</section>
-				<section>
-					<h3>Working with Math.random()</h3>
-					<pre><code class="javascript">// Random number between 0 and 1 (not including 1)
-Math.random();                            // 0.123456789...
-
-// Random integer from 0 to max (not including max)
-function getRandomInt(max) {
-  return Math.floor(Math.random() * max);
-}
-getRandomInt(10);                        // 0-9
-
-// Random integer from min to max (inclusive)
-function getRandomIntInclusive(min, max) {
-  min = Math.ceil(min);
-  max = Math.floor(max);
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-getRandomIntInclusive(1, 10);           // 1-10
-
-// Random element from array
-function getRandomElement(array) {
-  return array[Math.floor(Math.random() * array.length)];
-}
-getRandomElement(["red", "green", "blue"]);  // random color</code></pre>
-				</section>
-			</section>
-
-			<!-- Date Object -->
-			<section>
-				<section>
-					<h2>Date Object</h2>
-					<div class="topic-box">
-						<p>Built-in object for working with dates and times.</p>
-					</div>
-					<h3>Creating Date Objects</h3>
-					<pre><code class="javascript">// Current date and time
-const now = new Date();                  // current date & time
-
-// Specific date (year, month [0-11], day, hour, minute, second, ms)
-const birthday = new Date(1990, 0, 15);  // Jan 15, 1990
-
-// From timestamp (milliseconds since Jan 1, 1970)
-const timestamp = new Date(1609459200000); // Dec 31, 2020
-
-// From date string
-const christmas = new Date("2023-12-25"); // Christmas 2023
-const halloween = new Date("October 31, 2023"); // Halloween 2023</code></pre>
-				</section>
-				<section>
-					<h3>Date Methods: Getters</h3>
-					<pre><code class="javascript">const date = new Date("2023-05-15T14:30:45");
-
-// Date components (local time)
-date.getFullYear();    // 2023
-date.getMonth();       // 4 (0-based, so 4 = May)
-date.getDate();        // 15
-date.getDay();         // 1 (0 = Sunday, 1 = Monday, etc.)
-
-// Time components (local time)
-date.getHours();       // 14 (2 PM)
-date.getMinutes();     // 30
-date.getSeconds();     // 45
-date.getMilliseconds(); // 0
-
-// Timestamp
-date.getTime();        // milliseconds since Jan 1, 1970
-
-// UTC/GMT methods
-date.getUTCHours();    // UTC hours (may differ from local)</code></pre>
-				</section>
-				<section>
-					<h3>Date Methods: Setters</h3>
-					<pre><code class="javascript">const date = new Date();
-
-// Set date components
-date.setFullYear(2025);
-date.setMonth(11);     // December (0-based)
-date.setDate(31);
-
-// Set time components
-date.setHours(23);
-date.setMinutes(59);
-date.setSeconds(59);
-
-// Set by timestamp
-date.setTime(1735689599000);  // Dec 31, 2024 23:59:59
-
-// UTC variants are also available
-date.setUTCHours(0);</code></pre>
-				</section>
-				<section>
-					<h3>Date Formatting & Operations</h3>
-					<pre><code class="javascript">const date = new Date();
-
-// Common formatting methods
-date.toString();           // "Mon Apr 06 2025 12:34:56 GMT+0000"
-date.toDateString();       // "Mon Apr 06 2025"
-date.toTimeString();       // "12:34:56 GMT+0000"
-date.toISOString();        // "2025-04-06T12:34:56.789Z"
-date.toLocaleString();     // "4/6/2025, 12:34:56 PM"
-date.toLocaleDateString(); // "4/6/2025"
-date.toLocaleTimeString(); // "12:34:56 PM"
-
-// Date arithmetic (in milliseconds)
-const tomorrow = new Date();
-tomorrow.setDate(tomorrow.getDate() + 1);
-
-// Calculate difference between dates (in milliseconds)
-const diff = tomorrow - date;  // 86400000 (1 day in ms)</code></pre>
-					
-				</section>
-			</section>
 
 			<!-- Arrays -->
+
 			<section>
-				<section>
-					<h2>Arrays</h2>
-					<div class="topic-box">
-						<p>Ordered collections of values accessed by index (starting at 0).</p>
-					</div>
-					<h3>Creating Arrays</h3>
-					<pre><code class="javascript">// Array literal (preferred)
+				<h2>Arrays</h2>
+				<div style="font-size: 20px;">
+					<p>Ordered collections of values accessed by index (starting at 0).</p>
+				</div>
+				<h3 style="font-size: 25px;">Creating Arrays</h3>
+				<pre><code class="javascript">// Array literal (preferred)
 const fruits = ["apple", "banana", "orange"];
 
 // Array constructor (less common)
@@ -739,10 +426,10 @@ const preset = new Array(5);  // [empty × 5]
 // Array from other iterable
 const chars = Array.from("hello");  // ["h", "e", "l", "l", "o"]
 const items = Array.of(1, 2, 3);    // [1, 2, 3]</code></pre>
-				</section>
-				<section>
-					<h3>Accessing Array Elements</h3>
-					<pre><code class="javascript">const fruits = ["apple", "banana", "orange", "mango"];
+			</section>
+			<section>
+				<h2 class="title">Accessing Array Elements</h2>
+				<pre><code class="javascript">const fruits = ["apple", "banana", "orange", "mango"];
 
 // Access by index
 fruits[0];                // "apple"
@@ -767,10 +454,10 @@ fruits.length = 6;        // ["apple", "pear", "orange", "mango", empty × 2]
 
 // Truncate array by setting length
 fruits.length = 2;        // ["apple", "pear"]</code></pre>
-				</section>
-				<section>
-					<h3>Basic Array Methods</h3>
-					<pre><code class="javascript">const fruits = ["apple", "banana", "orange"];
+			</section>
+			<section>
+				<h2 class="title">Basic Array Methods</h2>
+				<pre><code class="javascript">const fruits = ["apple", "banana", "orange"];
 
 // Adding elements
 fruits.push("mango");         // 4 (returns new length)
@@ -794,10 +481,10 @@ const combined = fruits.concat(more);  // ["apple", "banana", "orange", "grape",
 
 // Extracting parts (slice does not modify original)
 fruits.slice(1, 3);           // ["banana", "orange"]</code></pre>
-				</section>
-				<section>
-					<h3>Array Methods for Transformation</h3>
-					<pre><code class="javascript">const numbers = [1, 2, 3, 4, 5];
+			</section>
+			<section>
+				<h2 class="title">Array Methods for Transformation</h2>
+				<pre><code class="javascript">const numbers = [1, 2, 3, 4, 5];
 
 // map - transform each element (returns new array)
 const doubled = numbers.map(num => num * 2);
@@ -818,15 +505,748 @@ const hasEven = numbers.some(num => num % 2 === 0);
 // every - tests if all elements pass (returns boolean)
 const allPositive = numbers.every(num => num > 0);
 // true</code></pre>
-				</section>
+			</section>
+			<section>
+				<h2 class="title">Objects in JavaScript</h2>
+				<div>
+					<p style="font-size: 25px;">
+						Objects are collections of <strong>key-value pairs</strong> used to group related data and
+						functionality.
+					</p>
+					<ul style="font-size: 20px;">
+						<li>Properties store data.</li>
+						<li>Methods are functions stored in properties.</li>
+					</ul>
 
-				<script src="dist/reveal.js">
+					<p style="font-size: 22px; margin-top: 20px;"><strong>Example:</strong></p>
+					<pre><code class="code" style="font-size: 18px;" data-trim data-noescape>
+			  const car = {
+				brand: "Toyota",
+				start: function() {
+				  console.log("Engine started");
+				}
+			  };
+			  
+			  console.log(car.brand); // Toyota
+			  car.start();            // Engine started
+				  </code></pre>
+				</div>
+			</section>
 
-				</script>
-				<script src="plugin/notes/notes.js"></script>
-				<script src="plugin/markdown/markdown.js"></script>
-				<script src="plugin/highlight/highlight.js"></script>
-				<script> Reveal.initialize({ hash: true, plugins: [RevealMarkdown, RevealHighlight, RevealNotes] }); </script>
+
+			<section>
+				<h2 class="title">Object with Method</h2>
+				<pre><code class="code" data-trim data-noescape>
+			const person = {
+			  name: "Alice",
+			  age: 25,
+			  greet: function() {
+				console.log("Hello, " + this.name);
+			  }
+			};
+			
+			person.greet(); // Hello, Alice
+				</code></pre>
+				<p style="font-size: 20px;">The <code>greet()</code> function is a method of the <code>person</code>
+					object.</p>
+			</section>
+
+
+
+			<section>
+				<h2 class="title">Built-in Object Methods</h2>
+				<pre><code class="code" data-trim data-noescape>
+			const person = {
+			  name: "Alice",
+			  age: 25
+			};
+			
+			console.log(Object.keys(person));   // ["name", "age"]
+			console.log(Object.values(person)); // ["Alice", 25]
+			console.log(Object.entries(person));// [["name", "Alice"], ["age", 25]]
+				</code></pre>
+				<ul style="font-size: 20px;">
+					<li><code>Object.keys()</code> – returns property names.</li>
+					<li><code>Object.values()</code> – returns property values.</li>
+					<li><code>Object.entries()</code> – returns [key, value] pairs.</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2 class="title">Functions in JavaScript</h2>
+				<div style="font-size: 30px;">
+					<p>Functions are reusable blocks of code that perform a specific task.</p>
+					<pre><code class="code" data-trim data-noescape>
+			function greet(name) {
+			  return "Hello, " + name + "!";
+			}
+			
+			console.log(greet("Alice")); // Hello, Alice!
+				  </code></pre>
+					<ul>
+						<li><code>function</code> keyword is used to declare a function.</li>
+						<li>Parameters go inside <code>()</code>, code inside <code>{}</code>.</li>
+						<li><code>return</code> sends the result back.</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="title">Function Scope</h2>
+				<div class="content">
+					<p>Scope defines where variables can be accessed from.</p>
+					<pre><code class="code" data-trim data-noescape>
+			function testScope() {
+			  let inside = "I am inside!";
+			  console.log(inside);
+			}
+			
+			testScope();
+			// console.log(inside); // ❌ Error: inside is not defined
+				  </code></pre>
+					<p><strong>Variables declared inside a function</strong> are not accessible outside.</p>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="title">Block vs Function Scope</h2>
+				<div class="grid-2" style="font-size: 20px;">
+					<div>
+						<h4><code>let</code> and <code>const</code></h4>
+						<ul>
+							<li>Block-scoped</li>
+							<li>Only exist within <code>{ }</code> block</li>
+						</ul>
+					</div>
+					<div>
+						<h4><code>var</code></h4>
+						<ul>
+							<li>Function-scoped</li>
+							<li>Accessible anywhere in the function</li>
+						</ul>
+					</div>
+				</div>
+				<pre><code class="code" data-trim data-noescape>
+			if (true) {
+			  let a = 10;
+			  var b = 20;
+			}
+			
+			// console.log(a); // ❌ Error
+			console.log(b);   // ✅ 20
+				</code></pre>
+			</section>
+
+			<!-- Slide 1: Intro to Arrow Functions -->
+			<section>
+				<h2 class="title">Arrow Functions</h2>
+				<div class="content">
+					<p>Arrow functions are a shorter way to write function expressions.</p>
+					<pre><code class="code" data-trim data-noescape>
+// Regular function
+function add(a, b) {
+  return a + b;
+}
+
+// Arrow function
+const add = (a, b) => a + b;
+      </code></pre>
+					<p>They're great for short, inline functions.</p>
+				</div>
+			</section>
+
+			<!-- Slide 2: More Arrow Function Examples -->
+			<section>
+				<h2 class="title">Arrow Function Syntax</h2>
+				<ul class="content">
+					<li><code>() => { }</code> — no parameters</li>
+					<li><code>x => x * 2</code> — single parameter, implicit return</li>
+					<li><code>(a, b) => a + b</code> — multiple parameters</li>
+				</ul>
+				<pre><code class="code" data-trim data-noescape>
+const greet = name => `Hello, ${name}`;
+console.log(greet("Alice")); // Hello, Alice
+    </code></pre>
+			</section>
+
+			<!-- Slide 3: IIFE (Immediately Invoked Function Expression) -->
+			<section>
+				<h2 class="title">IIFE</h2>
+				<div class="content">
+					<p>IIFE stands for <strong>Immediately Invoked Function Expression</strong>.</p>
+					<p>It's a function that runs as soon as it's defined.</p>
+					<pre><code class="code" data-trim data-noescape>
+(function() {
+  console.log("I run immediately!");
+})();
+
+// Or with arrow function:
+(() => {
+  console.log("Arrow IIFE!");
+})();
+      </code></pre>
+				</div>
+			</section>
+
+			<!-- Slide 4: Arrow Function vs Regular Function -->
+			<section>
+				<h2 class="title">Arrow vs Regular Function</h2>
+				<div class="grid-2" style="font-size: 20px;">
+					<div>
+						<h4>Regular Function</h4>
+						<ul class="content">
+							<li>Has its own <code>this</code> context</li>
+							<li>Can be used as constructors</li>
+							<li>Can be hoisted</li>
+						</ul>
+					</div>
+					<div>
+						<h4>Arrow Function</h4>
+						<ul class="content">
+							<li><strong>No</strong> own <code>this</code> (lexical binding)</li>
+							<li>Can't be used as constructors</li>
+							<li>Not hoisted</li>
+						</ul>
+					</div>
+				</div>
+				<p class="content" style="margin-top: 1em;"><strong>Use arrow functions for:</strong> short callbacks,
+					array methods, concise expressions.</p>
+			</section>
+
+			<section>
+				<h2 class="title">Control Flow in JavaScript</h2>
+				<div class="content">
+					<p>Control flow determines the order in which code is executed in a program.</p>
+					<ul>
+						<li><strong>if / else if / else</strong></li>
+						<li><strong>switch</strong></li>
+						<li><strong>Loops:</strong> for, while, do...while</li>
+						<li><strong>break</strong> & <strong>continue</strong></li>
+					</ul>
+				</div>
+			</section>
+
+			<!-- Slide 2: if / else -->
+			<section>
+				<h2 class="title">if / else</h2>
+				<pre><code class="code" data-trim data-noescape>
+			const score = 85;
+			
+			if (score >= 90) {
+			  console.log("Grade: A");
+			} else if (score >= 75) {
+			  console.log("Grade: B");
+			} else {
+			  console.log("Grade: C");
+			}
+				</code></pre>
+				<p class="content">Use <strong>if-else</strong> to execute code based on conditions.</p>
+			</section>
+
+			<!-- Slide 3: switch -->
+			<section>
+				<h2 class="title">Switch Statement</h2>
+				<pre><code class="code" data-trim data-noescape>
+			const fruit = "apple";
+			
+			switch (fruit) {
+			  case "apple":
+				console.log("It's an apple!");
+				break;
+			  case "banana":
+				console.log("It's a banana!");
+				break;
+			  default:
+				console.log("Unknown fruit");
+			}
+				</code></pre>
+				<p class="content">Use <strong>switch</strong> for multiple exact match conditions.</p>
+			</section>
+
+
+			<!-- Slide: Title -->
+			<section>
+				<h2 class="title">Loops & Iterations in JavaScript</h2>
+				<p class="content">Control structures for executing code repeatedly with conditions.</p>
+			</section>
+
+			<!-- Slide: for loop -->
+			<section>
+				<h2 class="title">for Loop</h2>
+				<p class="content">Executes a block a specific number of times.</p>
+				<pre><code class="code" data-trim data-noescape>
+  for (let i = 0; i < 3; i++) {
+	console.log("For loop:", i);
+  }
+	</code></pre>
+			</section>
+
+			<!-- Slide: while loop -->
+			<section>
+				<h2 class="title">while Loop</h2>
+				<p class="content">Runs while the condition is true.</p>
+				<pre><code class="code" data-trim data-noescape>
+  let i = 0;
+  while (i < 3) {
+	console.log("While:", i);
+	i++;
+  }
+	</code></pre>
+			</section>
+
+			<!-- Slide: do...while loop -->
+			<section>
+				<h2 class="title">do...while Loop</h2>
+				<p class="content">Runs at least once before checking condition.</p>
+				<pre><code class="code" data-trim data-noescape>
+  let j = 0;
+  do {
+	console.log("Do while:", j);
+	j++;
+  } while (j < 3);
+	</code></pre>
+			</section>
+
+			<!-- Slide: break & continue -->
+			<section>
+				<h2 class="title">break & continue</h2>
+				<ul class="content">
+					<li><strong>break</strong>: Exits the loop early</li>
+					<li><strong>continue</strong>: Skips to the next iteration</li>
+				</ul>
+				<pre><code class="code" data-trim data-noescape>
+  for (let x = 0; x < 5; x++) {
+	if (x === 2) continue;
+	if (x === 4) break;
+	console.log("Loop x:", x);
+  }
+  // Output: 0 1 3
+	</code></pre>
+			</section>
+
+			<!-- Slide: forEach -->
+			<section>
+				<h2 class="title">forEach</h2>
+				<p class="content">Array method that runs a function for each element.</p>
+				<pre><code class="code" data-trim data-noescape>
+  ["a", "b", "c"].forEach((val, idx) => {
+	console.log(idx, val);
+  });
+	</code></pre>
+			</section>
+
+			<!-- Slide: for...of -->
+			<section>
+				<h2 class="title">for...of</h2>
+				<p class="content">Loops through iterable values (e.g., arrays).</p>
+				<pre><code class="code" data-trim data-noescape>
+  for (const letter of ["x", "y", "z"]) {
+	console.log(letter);
+  }
+	</code></pre>
+			</section>
+
+			<!-- Slide: map -->
+			<section>
+				<h2 class="title">map()</h2>
+				<p class="content">Creates a new array by transforming each item.</p>
+				<pre><code class="code" data-trim data-noescape>
+  const nums = [1, 2, 3];
+  const squares = nums.map(n => n * n);
+  console.log(squares); // [1, 4, 9]
+	</code></pre>
+			</section>
+
+			<!-- Slide: When to use what? -->
+			<section>
+				<h2 class="title">Which Loop to Use?</h2>
+				<ul style="font-size: 20px;">
+					<li><code>for</code>: When you need index control or count-based iteration</li>
+					<li><code>while</code>: When looping condition isn't index-based</li>
+					<li><code>do...while</code>: When the loop must run at least once</li>
+					<li><code>map</code>: To transform arrays into new arrays</li>
+					<li><code>forEach</code>: To perform an action on each item (no return)</li>
+					<li><code>for...of</code>: Clean syntax for looping over iterable values</li>
+				</ul>
+			</section>
+
+			<section>
+				<h2 class="title">What is the DOM?</h2>
+				<div class="content">
+					<p style="font-size: 22px;">
+						The <strong>DOM (Document Object Model)</strong> is a programming interface that represents a
+						web page as a tree structure of objects.
+					</p>
+					<ul style="font-size: 20px;">
+						<li>Each element becomes a <code>node</code> in the tree</li>
+						<li>JavaScript can access and modify the DOM dynamically</li>
+					</ul>
+					<pre><code class="code" data-trim data-noescape>
+			  <!-- HTML -->
+			  <div id="box">Hello</div>
+				  </code></pre>
+					<pre><code class="code" data-trim data-noescape>
+			  // JS
+			  const box = document.getElementById("box");
+			  box.textContent = "Hi there!";
+				  </code></pre>
+				</div>
+			</section>
+			<section>
+				<h2 class="title">Selecting DOM Elements</h2>
+				<div class="content">
+					<p style="font-size: 22px;">We can access elements using built-in JS methods:</p>
+					<ul style="font-size: 20px;">
+						<li><code>document.getElementById("id")</code></li>
+						<li><code>document.querySelector(".class" or "tag")</code></li>
+						<li><code>document.querySelectorAll("selector")</code> — returns a NodeList</li>
+					</ul>
+					<pre><code class="code" data-trim data-noescape>
+			  const title = document.querySelector("h1");
+			  const items = document.querySelectorAll(".item");
+				  </code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="title">Manipulating Content & Style</h2>
+				<div class="content">
+					<ul style="font-size: 20px;">
+						<li><code>element.textContent</code> – Changes text</li>
+						<li><code>element.innerHTML</code> – Inserts HTML</li>
+						<li><code>element.style</code> – Applies inline styles</li>
+					</ul>
+					<pre><code class="code" data-trim data-noescape>
+			  const box = document.getElementById("box");
+			  box.textContent = "Updated!";
+			  box.style.color = "yellow";
+			  box.style.backgroundColor = "black";
+				  </code></pre>
+				</div>
+			</section>
+			<section>
+				<h2 class="title">Creating & Adding Elements</h2>
+				<div class="content">
+					<p style="font-size: 22px;">We can dynamically build new elements and insert them into the DOM.</p>
+					<pre><code class="code" data-trim data-noescape>
+			  const newItem = document.createElement("li");
+			  newItem.textContent = "New Item";
+			  
+			  const list = document.querySelector("ul");
+			  list.appendChild(newItem);
+				  </code></pre>
+					<ul style="font-size: 20px;">
+						<li><code>createElement()</code> – makes a new element</li>
+						<li><code>appendChild()</code> – inserts into the DOM</li>
+					</ul>
+				</div>
+			</section>
+			<section>
+				<h2 class="title">Event Handling</h2>
+				<div class="content">
+					<p style="font-size: 22px;">We can add interactivity using event listeners.</p>
+					<pre><code class="code" data-trim data-noescape>
+			  const button = document.querySelector("button");
+			  
+			  button.addEventListener("click", () => {
+				alert("Button clicked!");
+			  });
+				  </code></pre>
+					<ul style="font-size: 20px;">
+						<li><code>addEventListener()</code> attaches a handler</li>
+						<li>Can respond to clicks, inputs, key presses, etc.</li>
+						<li>This is how we make pages dynamic!</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="title">Asynchronous JavaScript</h2>
+				<div class="content">
+					<p style="font-size: 22px;">
+						JavaScript is <strong>single-threaded</strong>, but we often need to perform tasks like:
+					</p>
+					<ul style="font-size: 20px;">
+						<li>Fetching data from APIs</li>
+						<li>Waiting for user actions</li>
+						<li>Handling timeouts</li>
+					</ul>
+					<p style="margin-top: 1em; font-size: 20px;">
+						To avoid blocking the UI, we use <strong>asynchronous programming</strong> techniques.
+					</p>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="title">setTimeout & setInterval</h2>
+				<div class="content">
+					<p style="font-size: 20px;">
+						JavaScript provides <code>setTimeout</code> and <code>setInterval</code> to schedule code for
+						later execution.
+					</p>
+					<ul style="font-size: 18px;">
+						<li><strong>setTimeout(fn, delay)</strong>: runs once after delay (in ms)</li>
+						<li><strong>setInterval(fn, delay)</strong>: runs repeatedly every delay</li>
+					</ul>
+
+					<pre><code class="code" data-trim data-noescape>
+			  // Runs after 2 seconds
+			  setTimeout(() => {
+				console.log("Hello after 2 seconds");
+			  }, 2000);
+			  
+			  // Repeats every 1 second
+			  setInterval(() => {
+				console.log("Tick");
+			  }, 1000);
+				  </code></pre>
+				</div>
+			</section>
+			<section>
+				<h2 class="title">Callback Hell 😵</h2>
+				<div class="content">
+					<p style="font-size: 20px;">Using multiple nested <code>setTimeout</code>s leads to what’s called:
+					</p>
+					<p style="font-weight: bold; color: yellow; font-size: 22px;">"Pyramid of Doom"</p>
+					<pre><code class="code" data-trim data-noescape>
+			  setTimeout(() => {
+				console.log("Step 1");
+				setTimeout(() => {
+				  console.log("Step 2");
+				  setTimeout(() => {
+					console.log("Step 3");
+					setTimeout(() => {
+					  console.log("All steps done!");
+					}, 1000);
+				  }, 1000);
+				}, 1000);
+			  }, 1000);
+				  </code></pre>
+					<p style="font-size: 18px;">Hard to read, debug, and maintain. We need something better.</p>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="title">Promises 🧩</h2>
+				<div class="content">
+					<p style="font-size: 20px;">A <strong>Promise</strong> is an object that represents the eventual
+						result of an async operation.</p>
+					<ul style="font-size: 18px;">
+						<li><code>pending</code> → initial state</li>
+						<li><code>fulfilled</code> → successful result</li>
+						<li><code>rejected</code> → failed result</li>
+					</ul>
+					<pre><code class="code" data-trim data-noescape>
+			  const task = new Promise((resolve, reject) => {
+				setTimeout(() => resolve("Done!"), 1000);
+			  });
+			  
+			  task.then(result => console.log(result));
+				  </code></pre>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="title">Chaining Promises</h2>
+				<div class="content">
+					<p style="font-size: 20px;">We can chain multiple asynchronous operations using
+						<code>.then()</code>:
+					</p>
+					<pre><code class="code" data-trim data-noescape>
+doTask1()
+  .then(result1 => doTask2(result1))
+  .then(result2 => doTask3(result2))
+  .then(final => console.log(final))
+  .catch(error => console.error(error));
+    </code></pre>
+					<p style="font-size: 18px;">Better than callback hell, but can still get messy.</p>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="title">Async / Await</h2>
+				<div class="content">
+					<p style="font-size: 20px;">
+						<code>async</code> / <code>await</code> makes async code look like sync code.
+					</p>
+					<pre><code class="code" data-trim data-noescape>
+			  async function runTasks() {
+				try {
+				  const result1 = await doTask1();
+				  const result2 = await doTask2(result1);
+				  console.log(result2);
+				} catch (err) {
+				  console.error(err);
+				}
+			  }
+			  runTasks();
+				  </code></pre>
+					<p style="font-size: 18px;">Clean, readable, and easier to debug!</p>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="title">Async JS: Summary</h2>
+				<div class="content">
+					<ul style="font-size: 20px;">
+						<li><strong>Callbacks</strong>: first approach, can get messy</li>
+						<li><strong>Promises</strong>: better structure with chaining</li>
+						<li><strong>Async/Await</strong>: cleanest syntax, easy to follow</li>
+					</ul>
+					<p style="font-size: 18px; margin-top: 1em;">
+						All of these help JavaScript handle time-based & async events without blocking the main thread.
+					</p>
+					<p style="font-size: 20px; font-weight: bold; color: yellow;">React apps rely heavily on async/await
+						and promises (especially for API calls).</p>
+				</div>
+			</section>
+
+
+			<!-- React Part -->
+
+			<section>
+				<h2 class="centered-content" style="font-size: 100px;">React</h2>
+			</section>
+
+			<section>
+				<h2 class="title">What is React?</h2>
+				<div class="content">
+					<p style="font-size: 22px;">
+						React is a <strong>JavaScript library</strong> for building <strong>user interfaces</strong>,
+						developed by Facebook.
+					</p>
+					<ul style="font-size: 20px;">
+						<li>Component-based architecture</li>
+						<li>Declarative UI</li>
+						<li>Fast and efficient updates via <strong>Virtual DOM</strong></li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="title">JSX: JavaScript + HTML</h2>
+				<div class="content">
+					<p style="font-size: 22px;">
+						React uses <strong>JSX</strong>, a syntax extension that looks like HTML, but is written in
+						JavaScript.
+					</p>
+					<pre><code class="code" data-trim data-noescape>
+			  const element = &lt;h1&gt;Hello, world!&lt;/h1&gt;;
+			  ReactDOM.render(element, document.getElementById('root'));
+				  </code></pre>
+					<p style="font-size: 18px;">JSX is not required, but it makes code more readable and expressive.</p>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="title">JSX is Compiled by Babel</h2>
+				<div class="content">
+					<p style="font-size: 22px;">
+						Browsers don’t understand JSX directly. It’s compiled to standard JavaScript using
+						<strong>Babel</strong>.
+					</p>
+					<pre><code class="code" data-trim data-noescape>
+			  const element = &lt;h1&gt;Hello&lt;/h1&gt;;
+			  // Compiled to:
+			  const element = React.createElement("h1", null, "Hello");
+				  </code></pre>
+					<p style="font-size: 18px;">Babel is used behind the scenes by tools like Vite, Webpack, etc.</p>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="title">Virtual DOM vs Real DOM</h2>
+				<div class="content">
+					<ul style="font-size: 20px;">
+						<li><strong>Real DOM</strong> updates are slow (especially for large UIs)</li>
+						<li><strong>Virtual DOM</strong> is an in-memory copy React uses to detect changes efficiently
+						</li>
+						<li>React updates only the changed parts of the actual DOM</li>
+					</ul>
+					<p style="margin-top: 1em; font-size: 18px;"><strong>Result:</strong> Faster rendering and better
+						performance</p>
+				</div>
+			</section>
+			<section>
+				<h2 class="title">How React Renders Your App</h2>
+				<div class="content">
+					<pre><code class="code" data-trim data-noescape>
+			  // index.html
+			  &lt;body&gt;
+				&lt;div id="root"&gt;&lt;/div&gt;
+			  &lt;/body&gt;
+				  </code></pre>
+					<pre><code class="code" data-trim data-noescape>
+			  // main.jsx
+			  import React from 'react';
+			  import ReactDOM from 'react-dom/client';
+			  import App from './App';
+			  
+			  ReactDOM.createRoot(document.getElementById('root')).render(
+				&lt;React.StrictMode&gt;
+				  &lt;App /&gt;
+				&lt;/React.StrictMode&gt;
+			  );
+				  </code></pre>
+					<p style="font-size: 18px;">React replaces <code>&lt;div id="root"&gt;</code> with
+						the rendered UI from <code>App.jsx</code>.</p>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="title">Components & Props</h2>
+				<div class="content">
+					<p style="font-size: 22px;">Everything in React is a <strong>component</strong>.</p>
+					<pre><code class="code" data-trim data-noescape>
+			  function Welcome(props) {
+				return &lt;h1&gt;Hello, {props.name}!&lt;/h1&gt;;
+			  }
+			  
+			  &lt;Welcome name="Alice" /&gt;
+				  </code></pre>
+					<ul style="font-size: 20px;">
+						<li><strong>Components</strong> are reusable pieces of UI</li>
+						<li><strong>Props</strong> are how you pass data to components</li>
+					</ul>
+				</div>
+			</section>
+
+			<section>
+				<h2 class="title">State in React</h2>
+				<div class="content">
+					<p style="font-size: 22px;">
+						<strong>State</strong> is data that changes over time and controls component behavior.
+					</p>
+					<pre><code class="code" data-trim data-noescape>
+			  import { useState } from "react";
+			  
+			  function Counter() {
+				const [count, setCount] = useState(0);
+				
+				return (
+				  &lt;div&gt;
+					&lt;p&gt;Count: {count}&lt;/p&gt;
+					&lt;button onClick={() => setCount(count + 1)}&gt;Add&lt;/button&gt;
+				  &lt;/div&gt;
+				);
+			  }
+				  </code></pre>
+					<p style="font-size: 18px;">React automatically re-renders the UI when state changes.</p>
+				</div>
+			</section>
+
+
+		</div>
+
+
+
+	</div>
+	<script src="dist/reveal.js">
+	</script>
+	<script src="plugin/notes/notes.js"></script>
+	<script src="plugin/markdown/markdown.js"></script>
+	<script src="plugin/highlight/highlight.js"></script>
+	<script> Reveal.initialize({ hash: true, plugins: [RevealMarkdown, RevealHighlight, RevealNotes] }); </script>
 
 </body>
 
